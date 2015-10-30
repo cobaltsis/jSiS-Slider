@@ -1,0 +1,525 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<meta name="description" content="Image Slider" />
+		<meta name="keywords" content="image, slider, danijel, grmec, javascript, jquery" />
+		<meta name="author" content="Danijel Grmec" />
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<LINK href="css/style.css" rel="stylesheet" type="text/css">
+        <LINK href="css/shCore.css" rel="stylesheet" type="text/css">
+        <LINK href="css/shThemeDefault.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/shCore.js"></script>
+        <script type="text/javascript" src="js/shBrushJScript.js"></script>
+        <script type="text/javascript" src="js/shBrushCss.js"></script>
+		<title>jSiS Documentation</title>
+	</head>
+	<body>
+		<div id="head-bg"><a href="../"><h3 class="head-style" title="jSiS Slider">jSiS Slider</h3></a></div>
+		<div id="menu">
+			<ul>
+            	<a href="#basic_usage"><li>Basic usage</li></a>
+                <a href="#options"><li>Options</li></a>
+                <a href="#images"><li>Images</li></a>
+                <a href="#video_link"><li>Video & Link</li></a>
+                <a href="#content"><li>Content</li></a>
+                <a href="#description"><li>Description</li></a>
+                <a href="#retina_hd"><li>Retina & HD</li></a>
+                <a href="#customization"><li>Customization</li></a>
+            </ul>
+		</div>
+        <br><br>
+        <h1>Documentation for jSiS Slider v1.0.0</h1>
+		If you have some problems or you see some bug or error, please, <a href="mailto:grmecd@gmail.com">contact me</a>. In other way, if you have some idea how to make this slider better, you're welcome to say. :)
+        <h2 id="basic_usage">Basic Usage</h2>
+        1. Upload files and folders to server and than include file in your page in head section:<br>
+        <pre class="brush: css">
+        	<!-- Stylesheet for slider (feel free to do what you wish) -->
+        	<LINK href="template/css/img-slider.css" rel="stylesheet" type="text/css">
+            
+            <!-- Include jQuery library file and files below in same order like here. Slider is compatible with v1.4.3 and higher -->
+			<script type="text/javascript" src="template/js/jquery-1.8.3.min.js"></script>
+            
+            <!--  Include this file only if you use jQuery 1.9.0 or higher -->
+			<script type="text/javascript" src="template/js/jquery-migrate-1.1.0.js"></script>
+            
+            <!-- Include jQuery user interface library -->
+			<script type="text/javascript" src="template/js/jquery-ui-1.9.2.min.js"></script>
+            
+            <!-- And finaly include main slider file -->
+			<script type="text/javascript" src="template/js/jSiS-slider.js"></script>
+        </pre>
+        <br><br>
+        2. In body section add HTML code in exact order like in example below (for content slides, look at <a href="#content">content</a> section):
+        <pre class="brush: css">
+        	<!-- Basic HTML structure -->
+            <div id="slider">
+            	<div id="slider-holder">
+                	
+                    <!-- Part for pagination bullets -->
+                    <div id="pagination-hold"></div>
+                    
+                    <!-- From here to ... -->
+                    <div class="content">
+                       	
+                        <!-- Here inside "main" div goes slide content --> 
+                        <div class="main">
+                        	
+                            <!-- Example for image -->
+                        	<img src="image.jpg" alt="" />
+                        </div>
+                    </div>
+                    <!-- ... here. This code, this few rows are one slide  -->
+                    
+                    <!-- Another slide -->
+                    <div class="content"> 
+                        <div class="main">
+                        	
+                            <!-- Example for content slide... -->
+                        	Just type some text... 
+                        </div>
+                    </div>
+        		</div>
+        	</div>
+        </pre>
+        For better view, below is example without comments:
+        <pre class="brush: css">
+            <div id="slider">
+            	<div id="slider-holder">
+                    <div id="pagination-hold"></div>
+                    <!-- Image example -->
+                    <div class="content">
+                        <div class="main">
+                        	<img src="image.jpg" alt="" />
+                        </div>
+                    </div>
+                    <!-- Content example -->
+                    <div class="content"> 
+                        <div class="main">
+                        	Just type some text or add some child element... 
+                       </div>
+                    </div>
+        		</div>
+        	</div>
+        </pre>
+        <br><br>
+        3. And third step is initialize with <a href="#options">options</a>. Note: For better site performance, add this at end of body section:
+        <pre class="brush: js">
+        <script type="text/javascript"> 
+  			$(document).ready(function() {  
+   				$('#slider').jSiS({
+	   				slideWidth: 			"1000px",
+	   				slideHeight: 			"560px",
+	   				speed: 					4000
+   				});  
+  			});  
+ 		</script>
+        </pre>
+        <h2 id="options">Options</h2>
+        Add new option in HTML: At end of last upper element add comma, and than add new option in format <b>option : value</b>.
+        <table>
+        	<tr>
+            	<th>Option</th>
+                <th>Default value</th>
+                <th>Description</th>
+            </tr>
+        	<tr>
+            	<td>slideWidth</td>
+                <td>1000 or "1000px"</td>
+                <td>Width of slider. Width can be integer (1000) or string in pixels ("1000px"), percent ("100%") and text ("auto").</td>
+            </tr>
+        	<tr>
+            	<td>slideHeight</td>
+                <td>560 or "560px"</td>
+                <td>Height of slider. Height can be integer (1000) or string in pixels ("1000px"), percent ("100%") and text ("auto").</td>
+            </tr>
+            <tr>
+            	<td>speed</td>
+                <td>4000</td>
+                <td>Time in milliseconds. Delay between moving from slide to slide (if autoplay is enabled).</td>
+            </tr>
+            <tr>
+            	<td>transitionType</td>
+                <td>"slide"</td>
+                <td>Select transition type. Can be "fade" or "slide".</td>
+            </tr>
+            <tr>
+            	<td>selectedAnimation</td>
+                <td>"basic"</td>
+                <td>Select transition animation. Available: basic (simple jQuery animation. Note: If is selected transition type fade with this option, transition type will be "slide"), linear, swing, easeInQuad, easeOutQuad, easeInOutQuad, easeInCubic, easeOutCubic, easeInOutCubic, easeInQuart, easeOutQuart, easeInOutQuart, easeInQuint, easeInOutQuint, easeInExpo, easeOutExpo, easeInOutExpo, easeInSine, easeOutSine, easeInOutSine, easeInCirc, easeOutCirc, easeInOutCirc, easeInElastic, easeOutElastic, easeInBack, easeOutBack, easeInOutBack, easeInBounce, easeOutBounce, easeInOutBounce.</td>
+            </tr>
+            <tr>
+            	<td>transitionSpeed</td>
+                <td>400</td>
+                <td>Time in milliseconds. Transition animation duration.</td>
+            </tr>
+            <tr>
+            	<td>autofit</td>
+                <td>true</td>
+                <td>Optional and activated by default. If is enabled (true) than every image is autofited with sliders dimensions. If is disabled (false) than image is on 100% width of slider. More in <a href="#images">images</a> section.</td>
+            </tr>
+            <tr>
+            	<td>enable_rightClick</td>
+                <td>false</td>
+                <td>This option disables mouse right click on images. To enable, write true.</td>
+            </tr>
+            <tr>
+            	<td>enable_imageDrag</td>
+                <td>false</td>
+                <td>This option disables image dragging with mouse. To enable, write true.</td>
+            </tr>
+            <tr>
+            	<td>lr_button_anim</td>
+                <td>"drop"</td>
+                <td>Left and right button animation. Available: none (without animation), blind, bounce, clip, drop, explode, fade, fold, highlight, puff, pulsate, scale, shake, size, slide, transfer.</td>
+            </tr>
+            <tr>
+            	<td>button_speed</td>
+                <td>200</td>
+                <td>Time in milliseconds. Navigation button come-in / out effect animation duration.</td>
+            </tr>
+            <tr>
+            	<td>retina_HD_enable</td>
+                <td>false</td>
+                <td>To activate type true. More in <a href="#retina_hd">Retina & HD</a> section.</td>
+            </tr>
+            <tr>
+            	<td>retina_folder</td>
+                <td>"/retina/"</td>
+                <td>Select the folder for retina images. You can leave this empty (with just "") if you want images in same folder like normal images, but images must have some retina_text (option below). More in <a href="#retina_hd">Retina & HD</a> section.</td>
+            </tr>
+            <tr>
+            	<td>retina_text</td>
+                <td>"_retina"</td>
+                <td>Text added to image name for retina images. It is optional if images are not in same folder as non-retina images. More in <a href="#retina_hd">Retina & HD</a> section.</td>
+            </tr>
+            <tr>
+            	<td>mobile_zoom_disable</td>
+                <td>true</td>
+                <td>Enabled by default. This option prevent mobile browser to zoom out page. Page will be displayed in real pixels. Available: true (enabled), false (disabled).</td>
+            </tr>
+            <tr>
+            	<td>slide_title_anim</td>
+                <td>"drop"</td>
+                <td>Come-in animation for description title. Available: none (without animation), blind, bounce, clip, drop, explode, fade, fold, highlight, puff, pulsate, scale, shake, size, slide, transfer. See <a href="#description">description</a> section.</td>
+            </tr>
+            <tr>
+            	<td>slide_title_speed</td>
+                <td>300</td>
+                <td>Time in milliseconds. Speed of description title come-in. See <a href="#description">description</a> section.</td>
+            </tr>
+            <tr>
+            	<td>slide_title_direction</td>
+                <td>"left"</td>
+                <td>Direction from where description title comes. Available: left, right, up, down. See <a href="#description">description</a> section.</td>
+            </tr>
+            <tr>
+            	<td>hide_desc</td>
+                <td>true</td>
+                <td>When is activated (true) additional description text will pop-up with slide animation on mouse click. And of course will be closed with same animation on mouse click. When is disabled (false) if there is any additional description text, it will be always shown. See <a href="#description">description</a> section.</td>
+            </tr>
+            <tr>
+            	<td>slide_desc_speed</td>
+                <td>300</td>
+                <td>Time in milliseconds. It's time for opening / closing additional description. See <a href="#description">description</a> section.</td>
+            </tr>
+            <tr>
+            	<td>slide_desc_position</td>
+                <td>"down"</td>
+                <td>Position of slide description. Can be "up" or "down". See <a href="#description">description</a> section.</td>
+            </tr>
+            <tr>
+            	<td>responsive_mode</td>
+                <td>true</td>
+                <td>When is activated, slider is responsive. To deactivate type false.</td>
+            </tr>
+            <tr>
+            	<td>lr_on_key_move</td>
+                <td>false</td>
+                <td>When is activated (true), this option enables slide moving with left and right arrow keyboard buttons.</td>
+            </tr>
+            <tr>
+            	<td>nonfit</td>
+                <td>"width"</td>
+                <td>Option for images when autofit option is disabled. More in <a href="#images">images</a> section.</td>
+            </tr>
+            <tr>
+            	<td>more_info_text</td>
+                <td>"default"</td>
+                <td>Change "more info" text. Read in <a href="#customization">customization</a> section.</td>
+            </tr>
+            <tr>
+            	<td>rotation_by_deg</td>
+                <td>true</td>
+                <td>Disable "more info" text rotation. More in <a href="#customization">customization</a> section.</td>
+            </tr>
+        </table>
+        <h2 id="images">Images</h2>
+        Some word about autofit option:<br>
+        By default autofit option is enabled (see <a href="#options">options</a>). This option always check slider dimensions and fulfill him with image by height or width. By default in both situations image is centered by height (if image is higher than slider) or width (if image is wider than slider). If you don't see part of image which you want, you can "move" image by height (up or down) or width (left or right). More in section below. If you don't want autofit, turn him off and than things become more simple. Images in that situation are on 100% of width. If you want you can do it by height too. Just add in options:
+        <pre class="brush: js">
+        <script type="text/javascript"> 
+  			$(document).ready(function() {  
+   				$('#slider').jSiS({
+	   				// some options before....
+	   				nonfit: 	"height"
+   				});  
+  			});  
+ 		</script>
+        </pre>
+        To make image slide just put some image with img tag. Here is basic image slide:
+        <pre class="brush: js">
+        <div class="content">
+        	<div class="main">
+            	<img src="image.jpg" alt="" />
+            </div>
+        </div>
+        </pre>
+        Note: As i said earlier, if in one slide are two or more images, that slide will be treated as content slide. More in <a href="#content">content</a> section. 
+        <br><br>Some word about "moving" image for getting exact part of image which you wanna show:<br>
+        "Moving" image is simple. All what you need is to add one attribute in img tag. It's called data-pos. Its value represent percent by which is image "moved". 0 is for top of image (or left side), 100 is for bootom of image (or right side). And how you can guess, everything between 0 and 100 is somewhere between. You can type decimal number too (example of decimal number: 30.5). Below is example for image "moved" for 25 percent:
+        <pre class="brush: js">
+        <div class="content">
+        	<div class="main">
+            	<img src="image.jpg" alt="" data-pos="25" />
+            </div>
+        </div>
+        </pre>
+        <h2 id="video_link">Video & Link</h2>
+        Link. If you add data-link attribute, over image will be one box with link indicator. Click on that box will cause, as you can guess, going to site which you add in. Example (we wanna go to google here):
+        <pre class="brush: js">
+        <div class="content">
+        	<div class="main">
+            	<img src="image.jpg" alt="" data-link="http://www.google.com/" />
+            </div>
+        </div>
+        </pre>
+        <br><br>
+        And here is video option too. If you wanna have some video in slider, you can make video slide. He need one image and data-frame attribute in image tag. In that attribute you need put iframe with video link. Slider support YouTube, Vimeo and Viddler. Under word "support" i mean: video will be autoplayed on box click. Every iframe inside this will be with dimensions which have slide. You can put in some other iframe or any other content like flash, another player etc, but its not fully tested for that. 
+        <br><br>For YouTube code needs look like:
+        <pre class="brush: js">
+       	<img src="image.jpg" alt="" data-frame="<iframe id='yt' src='http://www.youtube.com/embed/someVideoIDNumber?rel=0' frameborder='0' allowfullscreen></iframe>" />
+        </pre>
+        So, here we have iframe with id called yt. That means, when you take from youtube embed link, add id="yt" and it will work. In src, if you have anything else than ?rel=0 maybe it will not work.<br><br> 
+        For vimeo:
+        <pre class="brush: js">
+        <img src="image.jpg" alt="" data-frame="<iframe id='vimeo' src='http://player.vimeo.com/video/someVideoNumber' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>" />
+        </pre>
+        Here you need add id="vimeo". When you copy code from embed part of video, delete everything if there is something after some video number. In other way, maybe will not work. Or you can just copy this code and instead of "someVideoNumber" put video number and thats it.
+        <br><br>
+        For vidller:
+        <pre class="brush: js">
+        <img src="image.jpg" alt="" data-frame="<iframe id='viddler' src='//www.viddler.com/embed/someIDandOther&autoplay=0&moreOptions' frameborder='0' mozallowfullscreen='true' webkitallowfullscreen='true'></iframe>" />
+        </pre>
+        For viddler add id="viddler" and if you have somewhere in link &autoplay=0 it will work fine. If link dont have it, add it at the end.
+        <br><br>
+        And finaly, here is example:
+        <pre class="brush: js">
+        <div class="content">
+        	<div class="main">
+            	<img src="image.jpg" alt="" data-frame="<iframe id='yt' src='http://www.youtube.com/embed/someVideoIDNumber?rel=0' frameborder='0' allowfullscreen></iframe>" />
+            </div>
+        </div>
+        </pre>
+        <h2 id="content">Content</h2>
+        What about content? In this slider exists function which automatically detect content slide. Any slide with more than one picture, with some child element or some text will be treated like content slide. First example is with two (or more) images:
+        <pre class="brush: js">
+        <div class="content">
+        	<div class="main">
+            	<img src="image1.jpg" alt="" />
+                <img src="image2.jpg" alt="" /> <!-- or more images -->
+            </div>
+        </div>
+        </pre>
+        Or if slide have just image and some text:
+        <pre class="brush: js">
+        <div class="content">
+        	<div class="main">
+            	<img src="image.jpg" alt="" /> 
+                Here we add some text. This is content.
+            </div>
+        </div>
+        </pre>
+        Next example is with image and some child element:
+        <pre class="brush: js">
+        <div class="content">
+        	<div class="main">
+            	<img src="image.jpg" alt="" />
+                <p>It's still content slide</p>
+            </div>
+        </div>
+        </pre>
+        And of course, any slide without image is content.
+        <pre class="brush: js">
+        <div class="content">
+        	<div class="main">
+            	<h3>This is heading.</h3>
+            </div>
+        </div>
+        </pre>
+        <h2 id="description">Description</h2>
+        When we have some image or video in our slide, we in general want some description too. Here is that option. To see options look at <a href="#options">options</a> table. Below is example how to add description:
+        <pre class="brush: js">
+        <div class="content">
+        	<div class="main">
+            	<img src="image.jpg" alt="" />
+            </div>
+            <div class="slide-desc-holder">
+            	<div class="slide-title">Here we have some description. It's like title of slide.</div>
+            </div>
+        </div>
+        </pre>
+        I will show here default options for description although they are in <a href="#options">options</a> section.
+        <pre class="brush: js">
+        <script type="text/javascript"> 
+  			$(document).ready(function() {  
+   				$('#slider').jSiS({
+	   				// some options before....
+	   				slide_title_anim: 		"drop",	// come-in title animation
+					slide_title_speed: 		300,	// speed for that animation
+					slide_title_direction: 	"left",	// from where come title
+					slide_desc_position:	"down"	// "up" or "down"... description is up or down, simple :)
+   				});  
+  			});  
+ 		</script>
+        </pre>
+        And in this slider is one more description, additional description below description title. Example:
+        <pre class="brush: js">
+        <div class="content">
+        	<div class="main">
+            	<img src="image.jpg" alt="" />
+            </div>
+            <div class="slide-desc-holder">
+            	<div class="slide-title">Here we have some description. It's like title of slide.</div>
+                <div class="slide-desc">Here we have additional description. Just like some article. We have title and some text.</div>
+            </div>
+        </div>
+        </pre>
+        Below are options for additional description:
+        <pre class="brush: js">
+        <script type="text/javascript"> 
+  			$(document).ready(function() {  
+   				$('#slider').jSiS({
+	   				// some options before....
+	   				hide_desc: 			true,	// by default is activated, that means, additional text is hidden and on click will be shown with slide effect
+					slide_desc_speed: 	300		// speed for that animation
+   				});  
+  			});  
+ 		</script>
+        </pre>
+        By default description is down, but how i said, can be up too. But, if there is need for just one slide with a description opposite of the other ones, you just have to add data-descpos attribute to division with class slide-desc-holder. Below is example for situation where we have all slides with description positioned down except one which have description positioned up:
+        <pre class="brush: js">
+        <div class="content">
+        	<div class="main">
+            	<img src="image.jpg" alt="" />
+            </div>
+            <div class="slide-desc-holder" data-descpos="up">
+            	<div class="slide-title">Here we have some description.</div>
+                <div class="slide-desc">Here we have additional description.</div>
+            </div>
+        </div>
+        </pre>
+        If you wanna change rotated &raquo;, read about in <a href="#more_info">customization</a> section.
+        <h2 id="retina_hd">Retina & HD</h2>
+        What is retina? Retina is just name for device pixel ratio. More at <a href="http://en.wikipedia.org/wiki/Retina_Display">wikipedia</a>. Like option in slider, retina is for better image quality on displays with bigger pixel ratio that 1.0 (1.0 is normal computer display). If you have image for ratio 1.0, on displays with bigger ratio image can look awfully. So here comes this option which replace normal images with "retina" images. By default retina/HD is disabled. Type true in intialize to turn on. "Retina" images are images which are bigger than normal. The best way is to use double sized images (ie if you have normal image with dimensions 500x250 pixels, use for retina image with dimensions 1000x500 pixels). And what about HD (High Definition)? Retina and HD works on the same priciple. Both uses same images from same folder. Only difference is that HD depends on slider dimensions. If slider dimensions are over 1500x845 pixels, slider will use "retina", ie HD images. I will continue talk about retina and HD images, but i will use only retina word for simplicity. You can add this "retina" images in same folder as normal ones or you can put them in some other folder. Example how looks options in initialize:
+        <pre class="brush: js">
+        <script type="text/javascript"> 
+  			$(document).ready(function() {  
+   				$('#slider').jSiS({
+	   				// some options before....
+	   				retina_HD_enable: 		true,		// enable retina and HD
+					retina_folder: 			"/retina/",	// folder by default
+					retina_text:			"_retina"	// retina text by default
+   				});  
+  			});  
+ 		</script>
+        </pre>
+        If you have retina images in same folder as normal ones, by standards, they must have some other name. For that you have retina_text option. So, images must have that text in name too. Example: if you have normal image named image1.jpg, retina image will be image1_retina.jpg. Option retina_text is optional if you have images in another folder. For that situation you can leave just "". Same is with retina_folder. Its optional if images have another name, ie if they have retina_text. You can leave too just "". But both can't be with "".
+        <h2 id="customization" style="margin-bottom:-35px;">Customization</h2>
+        <h4 id="more_info">Change rotated &raquo; "more info" text</h4>
+        So, if you wanna change rotated &raquo; which we found in <a href="#description">description</a> title you have to add in initialize section two options (options are in <a href="#options">options</a> section):
+        <pre class="brush: js">
+        <script type="text/javascript"> 
+  			$(document).ready(function() {  
+   				$('#slider').jSiS({
+	   				// some options before....
+	   				more_info_text: 	"someTextYouWant",
+					rotation_by_deg: 	false
+   				});  
+  			});  
+ 		</script>
+        </pre>
+        Option more_info_text is text which will be shown instead of &raquo;. Option rotation_by_deg when is activated (true) rotates text for 90 degrees when description is up and for -90 degress (ie 270 degrees) when is down. So, when you have some text instead of &raquo; there is no need for rotation. Just type false to deactivate this option. But, text will be large. In CSS file find .more_info class style and change it:
+        <pre class="brush: css">
+        .more_info {
+			/* some style before. Change it only if you know */
+			font-size:26px; /* change font height (size) */
+			font-weight:bold; /* change to normal if you don't want fat font :) */
+		}
+        </pre>
+        <h4 id="buttons">Customize buttons</h4>
+        If you wanna change images you can just replace files in template\images\. Or you can find in CSS or JavaScript file image name and replace with another one. Below is table with all what you need. First column is for normal image name in template\images\ folder. Second column is for retina (HD) images in same folder. Third column talks about for what is that image. And fourth column shows in which file you can find and replace name if you don't want that name for your images.
+        <table>
+        	<tr>
+        		<th>Image name</th>
+                <th>Retina/HD image name</th>
+                <th>What represents</th>
+                <th>Where to change name and CSS style</th>
+        	</tr>
+            <tr>
+            	<td>link.png</td>
+                <td>link_retina.png</td>
+                <td>Link button on image with link slide.</td>
+                <td>File: template\css\jSiS-slider.css<br>Change name: Search for class style named .imgLinked and change link.png and link_retina.png<br>Style: Same class style</td>
+            </tr>
+            <tr>
+            	<td>pause_white.png</td>
+                <td>pause_white_retina.png</td>
+                <td>Pause button for slider.</td>
+                <td>File: template\js\jSiS-slider.js<br>Change name: Search for pause_white.png and pause_white_retina.png<br>Style: Search for id style #playpause</td>
+            </tr>
+            <tr>
+            	<td>play_white.png</td>
+                <td>play_white_retina.png</td>
+                <td>Play button for slider.</td>
+                <td>File: template\js\jSiS-slider.js<br>Change name: Search for play_white.png and play_white_retina.png<br>Style: Search for id style #playpause</td>
+            </tr>
+            <tr>
+            	<td>play_video_white.png</td>
+                <td>play_video_white_retina.png</td>
+                <td>Play button on image with video slide.</td>
+                <td>File: template\css\jSiS-slider.css<br>Change name: Search for class style named .imgVideo and change play_video_white.png and play_video_white_retina.png<br>Style: Same class style</td>
+            </tr>
+            <tr>
+            	<td>sllb.png</td>
+                <td>sllb_retina.png</td>
+                <td>Left navigation button.</td>
+                <td>File: template\js\jSiS-slider.js<br>Change name: Search for sllb.png and sllb_retina.png<br>Style: Search for id style named #leftNav</td>
+            </tr>
+            <tr>
+            	<td>slrb.png</td>
+                <td>slrb_retina.png</td>
+                <td>Right navigation button.</td>
+                <td>File: template\js\jSiS-slider.js<br>Change name: Search for slrb.png and slrb_retina.png<br>Style: Search for id style named #rightNav</td>
+            </tr>
+            <tr>
+            	<td>preloader.gif</td>
+                <td>There is no image.</td>
+                <td>Animated preloader when images are not yet loaded.</td>
+                <td>File: template\css\jSiS-slider.css<br>Change name: Search for id style named #preloader and replace preloader.gif<br>Style: Same id style</td>
+            </tr>
+        </table>
+        And how to change that X (close) button when is video active? Just search in template\css\jSiS-slider.css for id style named #close. If you wanna change X letter and type something like "close" or add image, search in template\js\jSiS-slider.js for id="close" and you will find that line where is that letter X. 
+        <h4 id="pagination">Customize pagination</h4>
+        For pagination is simple. Pagination is pure CSS code. Just search in template\css\jSiS-slider.css for id style named #pagination-hold and change whatever you want, but only if you know what you're doing. 
+		<hr>
+		<div id="footer">
+        	&copy; <a href="http://www.danijel-grmec.from.hr">Danijel Grmec</a>
+        </div>
+        <script type="text/javascript">
+     		SyntaxHighlighter.all()
+		</script>
+        
+
+
+	</body>
+</html>

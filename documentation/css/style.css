@@ -1,0 +1,158 @@
+body {
+	padding:0;
+	margin:75px 50px 10px 350px;
+	background:#eeeeff;
+	width:auto;
+	height:100%;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:13px;
+	text-align:justify;
+}
+#head-bg {
+	position:fixed;
+background: #317ab2; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: -moz-linear-gradient(top,  #317ab2 0%, #00588e 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#317ab2), color-stop(100%,#00588e)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #317ab2 0%,#00588e 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #317ab2 0%,#00588e 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #317ab2 0%,#00588e 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #317ab2 0%,#00588e 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#317ab2', endColorstr='#00588e',GradientType=0 ).Shadow(Strength=4, Direction=-90, Color='#000000'); /* IE6-8 */
+
+
+-moz-box-shadow: 0px 2px 10px #222222;
+-webkit-box-shadow: 2px 0px 10px #222222;
+box-shadow: 0px 2px 10px #222222;
+/* For IE 8 
+-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+/* For IE 5.5 - 7 
+filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+
+*/
+	
+	margin:0;
+	padding:0;
+	width:100%;
+	height:50px;
+	top:0;
+	left:0;
+	z-index:2;
+}
+
+
+
+
+
+.head-style {
+	margin:0;
+    display: block;
+    color: #222222;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:40px;
+    position: relative;
+	padding-left:350px;
+}
+
+.head-style:before, .head-style:after {
+    content: attr(title);
+    color: rgba(230,230,255,0.9);
+    position: absolute;
+	padding-left:350px;
+}
+
+.head-style:before { top: 1px; left: 1px }
+.head-style:after  { top: 1px; left: 1px }
+
+#head-bg a {
+	text-decoration:none;
+	color:#222222;
+}
+h1, h2 { color:#000077; }
+a { color: #0000aa; }
+h2 {
+	padding-top:65px;
+}
+h4 {
+	color: #000044;
+	padding-top:55px;
+}
+table {
+	width:100%;
+	font-size:13px;
+}
+th {
+	background: #00588e;
+	color:#ddddff;
+	text-align:center;
+}
+tr {
+	background:#d5d5f5;
+	height:25px;
+}
+tr:nth-child(2n) {
+	background: #c5c5d5;
+}
+tr:hover {
+	background:#aaaaff;
+	cursor:default;
+}
+td {
+	padding: 0 10px 0 10px;
+}
+td:nth-child(1) {
+	width:250px;
+}
+td:nth-child(2) {
+	width:125px;
+}
+
+
+#menu {
+	position:fixed;
+	top:0;
+	left:0;
+	width:225px;
+	height:100%;
+	background:#ccccd5;
+	border-right:solid 1px #002255;
+	-moz-box-shadow: 0px 2px 5px #222222;
+	-webkit-box-shadow: 2px 0px 5px #222222;
+	box-shadow: 0px 2px 5px #222222;
+	padding:200px 50px 0 25px;
+	text-align:right;
+}
+#menu a {
+	background:#c5c5d3;
+	display:block;
+	list-style:none;
+	border-right:5px #317ab2 solid;
+	margin-top:10px;
+	padding:5px 10px 5px 0;
+	font-size:13px;
+	text-decoration:none;
+	color: #000055;
+	font-family:Verdana, Geneva, sans-serif;
+}
+#menu a:hover {
+	background:#317ab2;
+	margin-right:-10px;
+	border-right:15px #00588e solid;
+	cursor:pointer;
+	color:#ffffff;
+}
+hr {
+	color:#00588e;
+}
+#footer {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:11px;
+	text-align:right;
+}
+#footer a {
+	color: #000055;
+	text-decoration:none;
+}
+#footer a:hover {
+	text-decoration:underline;
+}
